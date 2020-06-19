@@ -34,12 +34,14 @@ const SearchStrains = () => {
   }, [strains, searchTerm]);
 
   return (
-    <CustomInput
-      type="search"
-      placeholder="Search Strains Here..."
-      strainsFilter={strainsFilter}
-    />
-    <StrainResults results={results} />
+    <div className="search-results">
+      <CustomInput
+        type="search"
+        placeholder="Search Strains Here..."
+        strainsFilter={strainsFilter}
+      />
+      <StrainResults results={results} />
+    </div>
   );
 };
 
