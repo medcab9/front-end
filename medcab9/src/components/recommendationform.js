@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../../../actions/actionCreators";
+import * as actionCreators from "../actions/actionCreators";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 

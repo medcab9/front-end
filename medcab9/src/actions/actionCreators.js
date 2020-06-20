@@ -11,27 +11,27 @@ export const userSignup = (userData, history) => dispatch => {
     .then(({ data }) => {
       dispatch({ type: types.SIGN_UP });
       localStorage.setItem("token", data.token);
-      history.push("/signin");
+      history.push("/signup");
     })
     .catch(err => console.log(err));
 };
 //!! User Signup
 
-// User Login && Logout
-export const userLogin = (loginData, history) => dispatch => {
+// User Signin && Signout
+export const userLogin = (signinData, history) => dispatch => {
   axiosWithAuth()
-    .post(signinApi, loginData)
+    .post(signinApi, signinData)
     .then(({ data }) => {
-      dispatch({ type: types.LOGIN });
+      dispatch({ type: types.SIGN_IN });
       localStorage.setItem("token", data.token);
       history.push("/userprofile");
     })
     .catch(err => console.log(err));
 };
 
-export const logout = () => {
+export const signout = () => {
   localStorage.removeItem("token");
-  return { type: types.LOGOUT };
+  return { type: types.SIGN_OUT };
 };
 // User Logout
 

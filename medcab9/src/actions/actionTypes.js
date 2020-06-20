@@ -3,4 +3,4 @@ export const SIGN_IN = "LOGIN";
 export const POST_REC_FORM = "POST_REC_FORM";
 export const GET_RECOMMENDED = "GET_RECOMMENDED";
 export const SAVE_RECOMMENDED = "SAVE_RECOMMENDED";
-export const LOGOUT = "LOGOUT";
+export const SIGN_OUT = "LOGOUT";
