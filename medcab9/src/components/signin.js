@@ -24,7 +24,7 @@ class SignIn extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     axios
-      .get("https://cannedmedical.herokuapp.com/")
+      .get("https://cannedmedical.herokuapp.com/user")
       .then((res) => {
         console.log(res.data);
       })
