@@ -1,5 +1,5 @@
 import * as types from "./actionTypes";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "../utils/AxiosWithAuth";
 
 const signinApi = "https://cannedmedical.herokuapp.com/user/signin";
 const signupApi = "https://cannedmedical.herokuapp.com/user/signup/";
