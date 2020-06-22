@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 
-import * as actionCreators from "../../../actions/actionCreators";
+import * as actionCreators from "../actions/actionCreators";
 
 const RecommendCard = ({ recommended, saveRecommended }) => {
   const token = localStorage.getItem("token");
