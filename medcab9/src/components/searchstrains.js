@@ -16,7 +16,7 @@ const SearchStrains = () => {
   //loading page
   useEffect(() => {
     axios
-      .get("https://cannedmedical.herokuapp.com/api/strain")
+      .get("https://cannedmedical.herokuapp.com/api/strains")
       .then((res) => {
         console.log(res.data);
         setStrains(res.data);
