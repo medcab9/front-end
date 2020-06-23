@@ -7,13 +7,15 @@ import RecommendForm from "./components/recommendationform";
 import RecommendList from "./components/recommendations";
 import Profile from "./components/userprofile";
 import SignUp from "./components/signup";
-import Strains from "./components/strains";
+import Strains from "./components/Strains";
 import Search from "./components/SearchStrains";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Route path="/" component={SignIn} />
+      <Header />
+      <Route exact path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
       <Route path="/strains" components={Strains} />
