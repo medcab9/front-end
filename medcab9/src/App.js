@@ -13,7 +13,7 @@ import Search from "./components/SearchStrains";
 function App() {
   return (
     <div className="App">
-      <Route path="/signin" component={SignIn} />
+      <Route path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
       <Route path="/strains" components={Strains} />
