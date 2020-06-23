@@ -7,8 +7,8 @@ import RecommendForm from "./components/recommendationform";
 import RecommendList from "./components/recommendations";
 import Profile from "./components/userprofile";
 import SignUp from "./components/signup";
-import Strains from "./components/Strains";
-import Search from "./components/SearchStrains";
+import Strains from "./components/strains";
+import Search from "./components/searchstrains";
 import Header from "./components/Header";
 
 function App() {

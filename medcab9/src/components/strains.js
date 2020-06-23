@@ -1,5 +1,5 @@
 import React from "react";
-import SearchStrains from "./SearchStrains";
+import SearchStrains from "./searchstrains";
 import SearchResults from "./StrainResults";
 
 const Strains = () => {
