@@ -8,7 +8,7 @@ const StrainResults = ({ results }) => {
       {results.map((item) => {
         return (
           <div className="strain-card" key={item.id}>
-            <img src={item.image.img_url} alt={item.title} />
+            
             <h2>{item.title}</h2>
             <p>{item.flavor}</p>
             <p>{item.description}</p>

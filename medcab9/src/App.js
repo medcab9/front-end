@@ -8,7 +8,7 @@ import RecommendList from "./components/recommendations";
 import Profile from "./components/userprofile";
 import SignUp from "./components/signup";
 import Strains from "./components/strains";
-import Search from "./components/searchstrains";
+// import Search from "./components/SearchStrains";
 import Header from "./components/Header";
 
 function App() {
@@ -18,8 +18,7 @@ function App() {
       <Route exact path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
-      <Route path="/strains" components={Strains} />
-      <Route path="/searchstrains" components={Search} />
+      <Route path="/strains" component={Strains} />
 
       {/* Private Routes can be added here, just follow the templating format */}
       <Switch>
