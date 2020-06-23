@@ -4,16 +4,18 @@ import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import SignIn from "./components/signin";
 import RecommendForm from "./components/recommendationform";
-import RecommendList from "./components/recommendations"
+import RecommendList from "./components/recommendations";
 import Profile from "./components/userprofile";
-import SignUp from "./components/signup"
-import Strains from "./components/strains"
-import Search from "./components/searchstrains"
+import SignUp from "./components/signup";
+import Strains from "./components/strains";
+import Search from "./components/searchstrains";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Route path="/signin" component={SignIn} />
+      <Header />
+      <Route exact path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
       <Route path="/strains" components={Strains} />
@@ -22,7 +24,11 @@ function App() {
       {/* Private Routes can be added here, just follow the templating format */}
       <Switch>
         <PrivateRoute exact path="/userprofile" component={Profile} />
-        <PrivateRoute exact path="userprofile/recommendations" component={RecommendList} />
+        <PrivateRoute
+          exact
+          path="userprofile/recommendations"
+          component={RecommendList}
+        />
       </Switch>
     </div>
   );

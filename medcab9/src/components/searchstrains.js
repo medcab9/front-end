@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import CustomInput from "./CustomInput";
-import StrainResults from "./StrainResults"
-// import { useEffect, useState } from "react";
+import StrainResults from "./StrainResults";
 
 const SearchStrains = () => {
   const [strains, setStrains] = useState([]);
@@ -17,7 +16,7 @@ const SearchStrains = () => {
   //loading page
   useEffect(() => {
     axios
-      .get("https://cannedmedical.herokuapp.com/api/strain")
+      .get("https://cannedmedical.herokuapp.com/api/strains")
       .then((res) => {
         console.log(res.data);
         setStrains(res.data);

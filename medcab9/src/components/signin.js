@@ -31,7 +31,7 @@ class SignIn extends React.Component {
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
   }
 
-  return() {
+  render() {
     return (
       <div className="credentials">
         <form onSubmit={this.handleSubmit}>
