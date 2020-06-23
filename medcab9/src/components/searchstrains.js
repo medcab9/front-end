@@ -10,7 +10,7 @@ const SearchStrains = () => {
   const [results, setResults] = useState([]);
 
   const strainsFilter = (e) => {
-    setResults(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   //loading page
