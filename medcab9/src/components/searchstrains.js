@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import CustomInput from "./CustomInput";
-import { useEffect, useState } from "react";
+import StrainResults from "./StrainResults";
 
 const SearchStrains = () => {
   const [strains, setStrains] = useState([]);
