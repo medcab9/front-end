@@ -4,11 +4,11 @@ import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import SignIn from "./components/signin";
 import RecommendForm from "./components/recommendationform";
-import RecommendList from "./components/recommendations"
+import RecommendList from "./components/recommendations";
 import Profile from "./components/userprofile";
-import SignUp from "./components/signup"
-import Strains from "./components/strains"
-import Search from "./components/searchstrains"
+import SignUp from "./components/signup";
+import Strains from "./components/strains";
+import Search from "./components/SearchStrains";
 
 function App() {
   return (
@@ -22,7 +22,11 @@ function App() {
       {/* Private Routes can be added here, just follow the templating format */}
       <Switch>
         <PrivateRoute exact path="/userprofile" component={Profile} />
-        <PrivateRoute exact path="userprofile/recommendations" component={RecommendList} />
+        <PrivateRoute
+          exact
+          path="userprofile/recommendations"
+          component={RecommendList}
+        />
       </Switch>
     </div>
   );
