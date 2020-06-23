@@ -15,6 +15,7 @@ const Header = () => {
     <MainHeader>
     <img src="/medcab9/src/assets/logo-cannMedical.jpeg" alt="logo cann medical"/>
       <Link to="/recommendations">Recommendations</Link>
+      <Link to="/strains">Strains</Link>
       <Link to="/">Sign In</Link>
       <Link to="/signup">Sign Up</Link>
     </MainHeader>
