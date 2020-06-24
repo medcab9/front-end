@@ -1,0 +1,35 @@
+.card-body {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: baseline;
+  padding: 40px;
+  // display: flex;
+  // justify-content: center;
+}
+
+.card-custom-style {
+  max-width: 400px;
+  margin: 30px 10px;
+  float: left;
+  height: auto;
+}
+
+.card-custom-style {
+  & .uk-card-body {
+    & h3 {
+      font-family: "Montserrat";
+      font-weight: 600;
+    }
+
+    & .good-for {
+      font-size: 0.6rem;
+    }
+
+    & .line-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}

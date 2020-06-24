@@ -27,7 +27,7 @@ const Strains = () => {
   //search for strains
   useEffect(() => {
     const results = strains.filter((strain) => {
-      return strain.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return strain.flavor?.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
     setResults(results);
@@ -35,7 +35,7 @@ const Strains = () => {
 
   return (
     <div className="strains">
-      <SearchStrains strainsFilter={strainsFilter} />
+      <SearchStrains strainsFilter={strainsFilter} placeholder="Search for strains..." />
       <SearchResults results={results} />
     </div>
   );
