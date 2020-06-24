@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react"; 
 
 import CustomInput from "./CustomInput";
-import StrainResults from "./StrainResults";
+// import StrainResults from "./StrainResults";
 
+<<<<<<< HEAD
+const SearchStrains = ({ results, placeholder, strainsFilter }) => {
+=======
 const SearchStrains = () => {
   const [strains, setStrains] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,15 +34,16 @@ const SearchStrains = () => {
 
     setResults(results);
   }, [strains, searchTerm]);
+>>>>>>> 5a7843520e2d30cd0a9a5bb29c619c75aeb15ff8
 
   return (
     <div className="search-results">
       <CustomInput
         type="search"
-        placeholder="Search Strains Here..."
+        placeholder={placeholder}
         strainsFilter={strainsFilter}
+        results={results}
       />
-      <StrainResults results={results} />
     </div>
   );
 };
