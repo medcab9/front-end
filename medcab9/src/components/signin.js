@@ -3,16 +3,19 @@ import React from "react";
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 
-import { axios } from "axios";
+import axios from "axios";
 
 class SignIn extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      email: "",
+      username: "",
       password: "",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -24,7 +27,7 @@ class SignIn extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     axios
-      .get("https://cannedmedical.herokuapp.com/auth/login")
+      .post("https://cannedmedical.herokuapp.com/auth/login", {username:this.state.username, password:this.state.password})
       .then((res) => {
         console.log(res.data);
       })
@@ -36,11 +39,11 @@ class SignIn extends React.Component {
       <div className="credentials">
         <form onSubmit={this.handleSubmit}>
           <CustomInput
-            type="email"
-            name="email"
-            label="email"
-            value={this.state.email}
-            handleChange={this.handleChange}
+            type="username"
+            name="username"
+            label="username"
+            value={this.state.username}
+            onChange={this.handleChange}
             required
           />
 
@@ -49,7 +52,7 @@ class SignIn extends React.Component {
             name="password"
             label="password"
             value={this.state.password}
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             required
           />
 

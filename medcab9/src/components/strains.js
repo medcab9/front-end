@@ -9,7 +9,7 @@ const Strains = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
 
-  const strainsFilter = (e) => {
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
@@ -22,12 +22,19 @@ const Strains = () => {
         setStrains(res.data);
       })
       .catch((err) => console.log("Oh oh, something went wrong: ", err));
-  }, []);
+  }, [searchTerm]);
 
   //search for strains
   useEffect(() => {
     const results = strains.filter((strain) => {
-      return strain.flavor?.toLowerCase().includes(searchTerm.toLowerCase());
+      return (
+        strain.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.flavor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.effects.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.ailment.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.breed.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     });
 
     setResults(results);
@@ -35,7 +42,10 @@ const Strains = () => {
 
   return (
     <div className="strains">
-      <SearchStrains strainsFilter={strainsFilter} placeholder="Search for strains..." />
+      <SearchStrains
+        handleChange={handleChange}
+        placeholder="Search for strains..."
+      />
       <SearchResults results={results} />
     </div>
   );
