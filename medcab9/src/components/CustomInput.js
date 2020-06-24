@@ -2,10 +2,10 @@ import React from "react";
 
 import "./CustomInput.styles.scss";
 
-const CustomInput = ({ handleChange, label, ...otherProps }) => {
+const CustomInput = ({ type, handleChange, label, ...otherProps }) => {
   return (
     <div>
-      <input className="form-input" onChange={handleChange} {...otherProps} />
+      <input type={type} className="form-input" label={label} onChange={handleChange} {...otherProps} />
     </div>
   );
 };

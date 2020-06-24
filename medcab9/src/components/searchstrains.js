@@ -3,15 +3,12 @@ import React from "react";
 import CustomInput from "./CustomInput";
 // import StrainResults from "./StrainResults";
 
-<<<<<<< HEAD
 const SearchStrains = ({ results, placeholder, strainsFilter }) => {
-=======
-const SearchStrains = () => {
   const [strains, setStrains] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
 
-  const strainsFilter = (e) => {
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
@@ -34,14 +31,13 @@ const SearchStrains = () => {
 
     setResults(results);
   }, [strains, searchTerm]);
->>>>>>> 5a7843520e2d30cd0a9a5bb29c619c75aeb15ff8
 
   return (
     <div className="search-results">
       <CustomInput
         type="search"
         placeholder={placeholder}
-        strainsFilter={strainsFilter}
+        handleChange={handleChange}
         results={results}
       />
     </div>
