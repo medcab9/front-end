@@ -1,8 +1,8 @@
 import * as types from "./actionTypes";
 import { axiosWithAuth } from "../utils/AxiosWithAuth";
 
-const signinApi = "https://cannedmedical.herokuapp.com/user/signin";
-const signupApi = "https://cannedmedical.herokuapp.com/user/signup/";
+const signinApi = "https://cannedmedical.herokuapp.com/auth/login";
+const signupApi = "https://cannedmedical.herokuapp.com/auth/register";
 
 // User Signup
 export const userSignup = (userData, history) => dispatch => {
