@@ -41,7 +41,7 @@ const Strains = () => {
   }, [strains, searchTerm]);
 
   return (
-    <div className="strains">
+    <div className="strains uk-flex-column">
       <SearchStrains
         handleChange={handleChange}
         placeholder="Search for strains..."
