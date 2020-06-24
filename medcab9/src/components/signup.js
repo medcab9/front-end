@@ -24,7 +24,7 @@ class SignUp extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     axios
-      .get("https://cannedmedical.herokuapp.com/user/signup")
+      .get("https://cannedmedical.herokuapp.com/auth/register")
       .then((res) => {
         console.log(res.data);
       })
