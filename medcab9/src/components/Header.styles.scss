@@ -1,0 +1,13 @@
+.logo {
+  height: 80px;
+}
+
+.header {
+  background-color: #fbe27a !important;
+
+  & li {
+    & .link {
+      color: #333
+    }
+  }
+}
