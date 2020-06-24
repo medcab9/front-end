@@ -1,0 +1,14 @@
+.logo {
+  height: 80px;
+}
+
+.header {
+  background-color: #fbe27a !important;
+  box-shadow: 0 6px 6px rgba(0,0,0,0.23);
+
+  & li {
+    & .link {
+      color: #333
+    }
+  }
+}
