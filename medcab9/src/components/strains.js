@@ -29,11 +29,10 @@ const Strains = () => {
     const results = strains.filter((strain) => {
       return (
         strain.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        strain.flavor.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        strain.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.breed.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        strain.rating.toLowerCase().includes(searchTerm.toLowerCase()) ||
         strain.effects.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        strain.ailment.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        strain.breed.toLowerCase().includes(searchTerm.toLowerCase())
+        strain.flavor.toLowerCase().includes(searchTerm.toLowerCase())
       );
     });
 

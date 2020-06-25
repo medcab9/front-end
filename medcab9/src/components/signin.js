@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
@@ -27,37 +28,56 @@ class SignIn extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("https://cannedmedical.herokuapp.com/auth/login", {username:this.state.username, password:this.state.password})
+      .post("https://cannedmedical.herokuapp.com/auth/login", {
+        username: this.state.username,
+        password: this.state.password,
+      })
       .then((res) => {
         console.log(res.data);
       })
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
+      this.props.history.push("userprofile");
   }
 
   render() {
     return (
-      <div className="credentials">
-        <form onSubmit={this.handleSubmit}>
+      <div className="uk-card uk-card-default uk-card-body uk-padding-large	uk-width-1-2 uk-margin uk-container">
+        <h3 class="uk-card-title">Sign In</h3>
+        <form onSubmit={this.handleSubmit} 
           <CustomInput
+            className="uk-margin-small uk-search-input"
             type="username"
             name="username"
             label="username"
             value={this.state.username}
             onChange={this.handleChange}
+            placeholder="Username"
+            style={{ borderBottom: "1px solid green" }}
             required
           />
 
           <CustomInput
+            className="uk-margin-small uk-search-input"
             type="password"
             name="password"
             label="password"
             value={this.state.password}
             onChange={this.handleChange}
+            placeholder="Password"
+            style={{ borderBottom: "1px solid green" }}
             required
           />
 
-          <CustomButton type="submit">Sign In</CustomButton>
+          <CustomButton
+            className="uk-button uk-button-default uk-margin-small"
+            type="submit"
+          >
+            Sign In
+          </CustomButton>
         </form>
+        <span>
+          Don't have an account yet: <Link to="/signup">Sign Up</Link>
+        </span>
       </div>
     );
   }
