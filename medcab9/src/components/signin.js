@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
@@ -36,6 +36,7 @@ class SignIn extends React.Component {
         console.log(res.data);
       })
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
+    this.props.history.push("/userprofile");
   }
 
   render() {
