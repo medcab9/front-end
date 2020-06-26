@@ -1,112 +1,139 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as actionCreators from "../actions/actionCreators";
-import { Form, Field, withFormik } from "formik";
-import * as Yup from "yup";
+import React, { useState } from 'react';
+import { Form, FormGroup, Label, Button, Input } from 'reactstrap';
+import * as yup from 'yup';
+import axios from 'axios';
+import styled from "styled-components";
 
-const RecommendForm = ({
-  errors,
-  touched,
-  values,
-  history,
-  postRecForm
-}) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    postRecForm(values, history);
-  };
+const RecommendInfo = styled.div`
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 0, auto;
+`;
 
-  return (
-    <div className="form-container">
-      <Form className="recommendation-form" onSubmit={handleSubmit}>
-        <label className="recommend-label"> Ailment: </label>
-        <Field component="select" name="ailment" placeholder="Ailment">
-          <option>Please Select Ailment</option>
-          <option value="Pain">Pain</option>
-          <option value="Anxiety">Anxiety</option>
-        </Field>
-        {touched.ailment && errors.ailment && (
-          <span className="error"> {errors.ailment} </span>
-        )}
-        <label className="recommend-label"> Effects: </label>
-        <Field component="select" name="effects" placeholder="Effects">
-          <option>Please Select desired effects</option>
-          <option value="Sleepy">Sleepy</option>
-          <option value="Hungry">Hungry</option>
-        </Field>
-        {touched.effects && errors.effects && (
-          <span className="error"> {errors.effects} </span>
-        )}
-        <label className="recommend-label"> Type: </label>
-        <Field component="select" name="type" placeholder="Type">
-          <option>Please Select desired type of strain</option>
-          <option value="Indica">Indica</option>
-          <option value="Sativa">Sativa</option>
-          <option value="Hybrid">Hybrid</option>
-        </Field>
-        {touched.type && errors.type && (
-          <span className="error"> {errors.type} </span>
-        )}
-        <label className="recommend-label"> Intake: </label>
-        <Field component="select" name="intake" placeholder="Intake">
-          <option>Please Select desired Intake</option>
-          <option value="Edible">Edible</option>
-          <option value="Flower">Flower</option>
-          <option value="Drink">Drink</option>
-        </Field>
-        {touched.intake && errors.intake && (
-          <span className="error"> {errors.intake} </span>
-        )}
-        <label className="recommend-label"> Extra Information: </label>
-        <Field
-          as="textarea"
-          rows="10"
-          cols="40"
-          type="text"
-          name="info"
-          placeholder="Extra Information"
-        />
-        <button>Submit</button>
-      </Form>
-    </div>
-  );
-};
 
-const FormikRecommendForm = withFormik({
-  mapPropsToValues({ ailment, effects, type, intake, info }) {
-    return {
-      ailment: ailment || "",
-      effects: effects || "",
-      type: type || "",
-      intake: intake || "",
-      info: info || ""
-    };
-  },
+const RecommendForm = () => {
+  const [formData, setFormData] = useState({
+    pain: false,
+    anxiety: false,
+    sleepy: false,
+    hungry: false,
+    indica: false,
+    sativa: false,
+    hybrid: false,
+    edible: false,
+    flower: false,
+    drink: false,
+  });
 
-  validationSchema: Yup.object().shape({
-    ailments: Yup.string().oneOf([
-        "Pain",
-        "Anxiety",
-    ]),
-
-    effects: Yup.string().oneOf([
-        "Sleepy",  
-        "Hungry",
-    ]),
-
-    type: Yup.string().oneOf([
-        "Indica", 
-        "Sativa", 
-        "Hybrid"
-    ]),
-    
-    intake: Yup.string().oneOf([
-      "Edible",
-      "Flower",
-      "Drink"
-    ]),
-    info: Yup.string()
+  const schema = yup.object().shape({
+    pain: yup.boolean(),
+    anxiety: yup.boolean(),
+    sleepy: yup.boolean(),
+    hungry: yup.boolean(),
+    indica: yup.boolean(),
+    sativa: yup.boolean(),
+    hybrid: yup.boolean(),
+    edible: yup.boolean(),
+    flower: yup.boolean(),
+    drink: yup.boolean(),
   })
-})(RecommendForm);
+  const submit = () => {
+      schema.validate(formData).then(() => {
+          axios.post('https://medcab-td.herokuapp.com/predictions', formData).then( (res) => {
+              console.log(res.data, 'Make Selection')
+          })
+      })
+  }
+  const handleChange = e => {
+      setFormData({...formData, [e.target.name]: e.target.checked})
+  }
+  
+  return(
+    <RecommendInfo>
+    <Form onSubmit={(e) => {
+        e.preventDefault()
+        submit()
+    }}>
+        <FormGroup tag='fieldset'>
+          <legend>Info Needed for Recommendations</legend>
+          <h2>Ailment</h2>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='pain' checked={formData.sleep} onChange={handleChange} />
+             Pain
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='anxiety' checked={formData.pain} onChange={handleChange} />
+              Anxiety
+            </Label>
+          </FormGroup>
+          <h2>Effects</h2>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='sleepy' checked={formData.eating} onChange={handleChange} />
+              Sleepy
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='hungry' checked={formData.cancer} onChange={handleChange} />
+              Hungry
+            </Label>
+          </FormGroup>
+          <h2>Type</h2>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='indica' checked={formData.glaucoma} onChange={handleChange} />
+              Indica
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='sativa' checked={formData.nausea} onChange={handleChange} />
+              Sativa
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='hybird' checked={formData.mental} onChange={handleChange} />
+              Hybrid
+            </Label>
+          </FormGroup>
+          <h2>Intake</h2>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='edible' checked={formData.mental} onChange={handleChange} />
+              Edible
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='flower' checked={formData.mental} onChange={handleChange} />
+              Flower
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type='checkbox' name='drink' checked={formData.mental} onChange={handleChange} />
+              Drink
+            </Label>
+          </FormGroup>
+          <Button>Submit</Button>
+        </FormGroup>
+    </Form>
+    </RecommendInfo>
+  )
+}
 
-export default connect(state => state, actionCreators)(FormikRecommendForm);
+export default RecommendForm;
+
+
+
+
