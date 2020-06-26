@@ -24,12 +24,13 @@ export const userLogin = (signinData, history) => dispatch => {
     .then(({ data }) => {
       dispatch({ type: types.SIGN_IN });
       localStorage.setItem("token", data.token);
-      history.push("/userprofile");
+      history.push("/strains");
     })
     .catch(err => console.log(err));
 };
 
-export const signout = () => {
+export const signout = history => {
+  // history.push("/");
   localStorage.removeItem("token");
   return { type: types.SIGN_OUT };
 };
