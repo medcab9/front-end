@@ -4,7 +4,7 @@ import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor() {

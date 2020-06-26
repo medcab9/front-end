@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchStrains from "./searchstrains";
 import SearchResults from "./StrainResults";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 import ReactLoading from "react-loading";
 
 import axios from "axios";
