@@ -39,13 +39,12 @@ class SignIn extends React.Component {
         this.props.history.push("/userprofile");
       })
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
-    this.props.history.push("/userprofile");
   }
 
   render() {
     return (
       <div className="uk-card uk-card-default uk-card-body uk-padding-large uk-child-width-auto uk-margin uk-container">
-        <h3 class="uk-card-title">Sign In</h3>
+        <h3 className="uk-card-title">Sign In</h3>
         <form onSubmit={this.handleSubmit}>
           <CustomInput
             className="uk-margin-small uk-search-input"
