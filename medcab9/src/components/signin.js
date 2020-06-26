@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { axiosWithAuth} from "../utils/AxiosWithAuth"
 
@@ -39,7 +39,7 @@ class SignIn extends React.Component {
         this.props.history.push("/userprofile");
       })
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
-     
+    this.props.history.push("/userprofile");
   }
 
   render() {

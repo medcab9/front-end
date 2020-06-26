@@ -8,10 +8,24 @@ const StrainResults = ({ results }) => {
       className="card-body uk-flex uk-flex-center uk-flex-wrap"
       retults={results}
     >
+      <div uk-filter="target: .js-filter">
+        Breeds:
+        <ul class="uk-subnav uk-subnav-pill">
+          <li class="uk-active" uk-filter-control="[data-breed='Hybrid']">
+            <a href="#">Hybrid</a>
+          </li>
+          <li uk-filter-control="[data-breed='Sativa']">
+            <a href="#">Sativa</a>
+          </li>
+          <li uk-filter-control="[data-breed='Indica']">
+            <a href="#">Indica</a>
+          </li>
+        </ul>
+      </div>
       {results.map((item) => {
         return (
           <div
-            className="uk-card uk-card-default card-custom-style"
+            className="uk-card uk-card-default card-custom-style js-filter"
             key={item.id}
           >
             <div class="uk-card-media-top">
@@ -34,7 +48,7 @@ const StrainResults = ({ results }) => {
               </p>
               <div class="uk-card-footer">
                 <p>
-                  <strong>Breed: </strong>
+                  <strong dataBreed={["data-breed"]}>Breed: </strong>
                   {item.breed}
                 </p>
               </div>

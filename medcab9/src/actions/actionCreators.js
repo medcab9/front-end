@@ -41,7 +41,7 @@ export const postRecForm = recData => dispatch => {
   const stringObjRecData = JSON.stringify(recData);
   axiosWithAuth()
     .post(
-      `https://cors-anywhere.herokuapp.com/https://cannedmedical.herokuapp.com/request/?search=${stringObjRecData}`,
+      `https://medcab-td.herokuapp.com/predictions`,
       { body: stringObjRecData }
     )
     .then(({ data }) => {
