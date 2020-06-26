@@ -4,7 +4,7 @@ import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor() {
@@ -40,6 +40,7 @@ class SignUp extends React.Component {
       .catch((err) =>
         console.log("Oh no, there is something wrong: ", err.response)
       );
+      this.props.history.push("/userprofile");
   }
 
   render() {

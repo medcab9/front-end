@@ -5,10 +5,11 @@ import "./Header.styles.scss";
 
 const Header = () => {
   const token = localStorage.getItem("token");
+  console.log('token: ', token);
   return (
     <nav className="uk-navbar uk-dark header uk-column-1-2@s" uk-navbar>
       <div className="uk-navbar-left">
-        <a href="" class="uk-navbar-item uk-logo">
+        <a href="/" class="uk-navbar-item uk-logo">
           <img className="logo" src={logo} alt="logo cann medical" />
         </a>
       </div>
