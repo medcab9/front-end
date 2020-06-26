@@ -44,7 +44,7 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div class="uk-card uk-card-default uk-card-body uk-padding-large	uk-width-1-2 uk-margin uk-container">
+      <div class="uk-card uk-card-default uk-card-body uk-padding-large uk-child-width-auto uk-margin uk-container">
         <h3 class="uk-card-title">Sign up</h3>
         <form onSubmit={this.handleSubmit}>
           {console.log(this.state)}

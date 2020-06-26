@@ -16,7 +16,7 @@ const StrainResults = ({ results }) => {
             </div>
             <div class="uk-card-body">
               <h2 className="uk-card-title">{item.name}</h2>
-              <strong>Rating: </strong><span class="uk-badge" style={{backgroundColor: "green"}}>{item.rating}</span>
+              <strong>Rating: </strong><span class="uk-badge" style={{backgroundColor: "#8abb2a"}}>{item.rating}</span>
               <h4>{item.flavor}</h4>
               <p className="line-clamp">{item.description}</p>
               <p><strong>Effects: </strong>{item.effects}</p>

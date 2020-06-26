@@ -41,7 +41,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="uk-card uk-card-default uk-card-body uk-padding-large	uk-width-1-2 uk-margin uk-container">
+      <div className="uk-card uk-card-default uk-card-body uk-padding-large uk-child-width-auto uk-margin uk-container">
         <h3 class="uk-card-title">Sign In</h3>
         <form onSubmit={this.handleSubmit}>
           <CustomInput
