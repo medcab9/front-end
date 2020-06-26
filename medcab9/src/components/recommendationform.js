@@ -8,7 +8,6 @@ const RecommendForm = ({
   errors,
   touched,
   values,
-  status,
   history,
   postRecForm
 }) => {

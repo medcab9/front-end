@@ -1,6 +1,6 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import PrivateRoute from "./utils/PrivateRoute";
+import { Route } from "react-router-dom";
+// import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import SignIn from "./components/signin";
 import RecommendForm from "./components/recommendationform";
@@ -18,17 +18,19 @@ function App() {
       <Route exact path="/" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
+      <Route path="/userprofile" component={Profile} />
       <Route path="/strains" component={Strains} />
+      <Route path="userprofile/recommendations" component={RecommendList} />
 
       {/* Private Routes can be added here, just follow the templating format */}
-      <Switch>
+      {/* <Switch>
         <PrivateRoute exact path="/userprofile" component={Profile} />
         <PrivateRoute
           exact
           path="userprofile/recommendations"
           component={RecommendList}
         />
-      </Switch>
+      </Switch> */}
     </div>
   );
 }

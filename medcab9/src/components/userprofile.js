@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink, Switch } from "react-router-dom";
+import { NavLink, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import PrivateRoute from "../utils/PrivateRoute";
+// import PrivateRoute from "../utils/PrivateRoute";
 import RecommendList from "./recommendations";
+import RecommendForm from "./recommendationform";
 
 const Container = styled.div`
   display: flex;
@@ -40,17 +41,23 @@ export default function UserProfile() {
   return (
     <Container>
       <DashNavContainer>
-        <NavLink to="/userprofile/recommendations">
+        <NavLink to="/recommendations">
           <DashNavItem>
             <p>Strain Recommendations</p>
           </DashNavItem>
         </NavLink>
+        <NavLink to="/recommendationform">
+          <DashNavItem>
+            <p>Get Strain Recommendation</p>
+          </DashNavItem>
+        </NavLink>
       </DashNavContainer>
       <Switch>
-        <PrivateRoute
-          path="/userprofile/recommendations"
+        <Route
+          path="/recommendations"
           component={RecommendList}
         />
+        <Route path="/recommendationform" component={RecommendForm} />
       </Switch>
     </Container>
   );

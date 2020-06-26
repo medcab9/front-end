@@ -1,10 +1,12 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { axiosWithAuth} from "../utils/AxiosWithAuth"
 
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 
-import axios from "axios";
+// import axios from "axios";
 
 class SignIn extends React.Component {
   constructor() {
@@ -27,23 +29,24 @@ class SignIn extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .post("https://cannedmedical.herokuapp.com/auth/login", {
         username: this.state.username,
         password: this.state.password,
       })
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem('token', res.data.token);
+        this.props.history.push("/userprofile");
       })
       .catch((err) => console.log("Oh no, there is something wrong: ", err));
-      this.props.history.push("userprofile");
+     
   }
 
   render() {
     return (
       <div className="uk-card uk-card-default uk-card-body uk-padding-large	uk-width-1-2 uk-margin uk-container">
         <h3 class="uk-card-title">Sign In</h3>
-        <form onSubmit={this.handleSubmit} 
+        <form onSubmit={this.handleSubmit}>
           <CustomInput
             className="uk-margin-small uk-search-input"
             type="username"
