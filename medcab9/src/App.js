@@ -19,7 +19,7 @@ function App() {
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
       <Route path="/userprofile" component={Profile} />
-      <PrivateRoute path="/strains" component={Strains} />
+      <Route path="/strains" component={Strains} />
       <Route path="userprofile/recommendations" component={RecommendList} />
 
       {/* Private Routes can be added here, just follow the templating format */}
