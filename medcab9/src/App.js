@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-// import PrivateRoute from "./utils/PrivateRoute";
+import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import SignIn from "./components/signin";
 import RecommendForm from "./components/recommendationform";
@@ -19,7 +19,7 @@ function App() {
       <Route path="/signup" component={SignUp} />
       <Route path="/recommendationform" component={RecommendForm} />
       <Route path="/userprofile" component={Profile} />
-      <Route path="/strains" component={Strains} />
+      <PrivateRoute path="/strains" component={Strains} />
       <Route path="userprofile/recommendations" component={RecommendList} />
 
       {/* Private Routes can be added here, just follow the templating format */}
