@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-transparent.png";
 import "./Header.styles.scss";
+import { signout } from "../actions/actionCreators";
 
 const Header = () => {
   const token = localStorage.getItem("token");
-  console.log('token: ', token);
+  console.log("token: ", token);
   return (
     <nav className="uk-navbar uk-dark header uk-column-1-2@s">
       <div className="uk-navbar-left">
@@ -15,11 +16,13 @@ const Header = () => {
       </div>
       <div className="uk-navbar-right navbar-right-side">
         <ul className="uk-navbar-nav">
-          <li>
-            <Link className="link" to="/recommendations">
-              Recommendations
-            </Link>
-          </li>
+          {token ? (
+            <li>
+              <Link className="link" to="/recommendations">
+                Recommendations
+              </Link>
+            </li>
+          ) : null}
           {token ? (
             <li>
               <Link className="link" to="/strains">
@@ -27,16 +30,24 @@ const Header = () => {
               </Link>
             </li>
           ) : null}
-          <li>
-            <Link className="link" to="/">
-              Sign In
-            </Link>
-          </li>
-          <li>
-            <Link className="link" to="/signup">
-              Sign Up
-            </Link>
-          </li>
+          {token ? (
+            <li onClick={() => signout()}>
+              <Link className="link" to="/signup">Sign Out</Link>
+            </li>
+          ) : (
+            <li>
+              <Link className="link" to="/">
+                Sign In
+              </Link>
+            </li>
+          )}
+          {token ? null : (
+            <li>
+              <Link className="link" to="/signup">
+                Sign Up
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-right-side-mobile">
