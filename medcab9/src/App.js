@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-// import PrivateRoute from "./utils/PrivateRoute";
+import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import SignIn from "./components/signin";
 import RecommendForm from "./components/recommendationform";

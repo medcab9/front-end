@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchStrains from "./searchstrains";
 import SearchResults from "./StrainResults";
+import Lottie from "react-lottie";
+import ReactLoading from "react-loading";
 
 import axios from "axios";
 
@@ -45,7 +47,11 @@ const Strains = () => {
         handleChange={handleChange}
         placeholder="Search for strains..."
       />
-      <SearchResults results={results} />
+      {!results ? (
+        <ReactLoading type={"bars"} color={"green"} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </div>
   );
 };
