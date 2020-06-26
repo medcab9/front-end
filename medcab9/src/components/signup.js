@@ -36,11 +36,11 @@ class SignUp extends React.Component {
       })
       .then((res) => {
         console.log(res.data);
+        this.props.history.push("/userprofile");
       })
       .catch((err) =>
         console.log("Oh no, there is something wrong: ", err.response)
       );
-      this.props.history.push("/userprofile");
   }
 
   render() {
