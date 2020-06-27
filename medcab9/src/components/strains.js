@@ -47,7 +47,7 @@ const Strains = () => {
         handleChange={handleChange}
         placeholder="Search for strains..."
       />
-      {!results ? (
+      {!strains ? (
         <ReactLoading type={"bars"} color={"green"} />
       ) : (
         <SearchResults results={results} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import logo from "../assets/logo-transparent.png";
 import "./Header.styles.scss";
 import { signout } from "../actions/actionCreators";
@@ -32,7 +32,7 @@ const Header = () => {
           ) : null}
           {token ? (
             <li onClick={() => signout()}>
-              <Link className="link" to="/signup">Sign Out</Link>
+              <Link className="link" to="/">Sign Out</Link>
             </li>
           ) : (
             <li>
