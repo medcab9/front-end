@@ -65,7 +65,7 @@ export const setReviewList = (recommended) => {
 
 export const saveRecommended = (recommended) => (dispatch) => {
   axiosWithAuth()
-    .post("https://cannedmedical.herokuapp.com/saved", recommended)
+    .post("https://cannedmedical.herokuapp.com/response", recommended)
     .then(({ data }) => {
       // NEED AT LEAST ID OF NEW REVIEW FROM BACKEND
       dispatch(setReviewList(recommended));
